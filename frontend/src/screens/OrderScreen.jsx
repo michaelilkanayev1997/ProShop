@@ -34,6 +34,7 @@ const OrderScreen = () => {
 
   const { userInfo } = useSelector((state) => state.auth);
 
+  // Load the paypal script
   useEffect(() => {
     if (!errorPayPal && !loadingPayPal && paypal.clientId) {
       const loadPayPalScript = async () => {
