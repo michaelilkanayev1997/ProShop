@@ -116,7 +116,7 @@ const ProductEditScreen = () => {
               ></Form.Control>
             </Form.Group>
 
-            {/* <Form.Group controlId="image" className="my-2">
+            <Form.Group controlId="image" className="my-2">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -130,7 +130,7 @@ const ProductEditScreen = () => {
                 type="file"
               ></Form.Control>
               {loadingUpload && <Loader />}
-            </Form.Group> */}
+            </Form.Group>
 
             <Form.Group controlId="brand" className="my-2">
               <Form.Label>Brand</Form.Label>
