@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
@@ -62,6 +62,10 @@ const ProductScreen = () => {
       toast.error(err?.data?.message || err.error);
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to top when the component mounts
+  }, []);
 
   return (
     <>
