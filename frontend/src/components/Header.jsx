@@ -33,31 +33,35 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg="dark" variant="dark" expand="md" collapseOnSelect>
+      <Navbar bg="primary" variant="dark" expand="md" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>
-              <img src={logo} alt="ProShop" />
-              ProShop
+            <Navbar.Brand className="d-flex align-items-center">
+              <img src={logo} alt="YourLogo" className="logo-img" />
+              <span className="ms-2 text-light fs-4 fw-bold">ProShop</span>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto align-items-center">
               <SearchBox />
               <LinkContainer to="/cart">
-                <Nav.Link>
+                <Nav.Link className="text-light">
                   <FaShoppingCart />
-                  Cart
+                  <span className="ms-1">Cart</span>
                   {cartItems.length > 0 && (
-                    <Badge pill bg="success" style={{ marginLeft: "5px" }}>
+                    <Badge pill bg="success" className="ms-2">
                       {cartItems.reduce((acc, item) => acc + item.qty, 0)}
                     </Badge>
                   )}
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
+                <NavDropdown
+                  title={userInfo.name}
+                  id="username"
+                  className="text-light"
+                >
                   <LinkContainer to="/profile">
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
@@ -67,14 +71,18 @@ const Header = () => {
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
-                  <Nav.Link>
+                  <Nav.Link className="text-light">
                     <FaUser />
-                    Sign In
+                    <span className="ms-1">Sign In</span>
                   </Nav.Link>
                 </LinkContainer>
               )}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="adminmenu">
+                <NavDropdown
+                  title="Admin"
+                  id="adminmenu"
+                  className="text-light"
+                >
                   <LinkContainer to="/admin/productlist">
                     <NavDropdown.Item>Products</NavDropdown.Item>
                   </LinkContainer>
