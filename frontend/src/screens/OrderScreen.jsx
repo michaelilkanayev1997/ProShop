@@ -62,9 +62,9 @@ const OrderScreen = () => {
   function onApprove(data, actions) {
     return actions.order.capture().then(async function (details) {
       try {
-        await payOrder({ orderId, details });
-        refetch(); // refresh the data on a user action or to ensure it's up-to-date
-        toast.success("Payment Successful");
+        await payOrder({ orderId, details }).unwrap();
+        refetch();
+        toast.success("Order is paid");
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
